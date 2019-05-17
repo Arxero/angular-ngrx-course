@@ -23,6 +23,8 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
 # Commands Used in the Terminal (in order)
 
     ng config cli.defaultCollection @ngrx/schematics
-    
+
     ng g store AppState --root --module app.module.ts
+
+    ng g action auth/Auth
 
