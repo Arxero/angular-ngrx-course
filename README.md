@@ -22,9 +22,14 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
 
 # Commands Used in the Terminal (in order)
 To set up schematics in the cli
+
     ng config cli.defaultCollection @ngrx/schematics
+
 Generate store
+
     ng g store AppState --root --module app.module.ts
+    
 Generate action file with default actions
+
     ng g action auth/Auth
 
