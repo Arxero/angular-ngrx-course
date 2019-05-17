@@ -37,3 +37,7 @@ Generate reducer without folder in auth module
 
     ng g reducer Auth --flat=false --module auth/auth.module.ts
 
+Generate ngrx effects file
+
+    ng g effect auth/Auth --module auth/auth.module
+
