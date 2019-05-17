@@ -15,29 +15,12 @@ type AuthState = {
 }
 
 export interface AppState {
-    auth: AuthState
+
 }
 
-const initialAuthState: AuthState = {
-    loggedIn: false,
-    user: undefined
-}
-
-function authReducer(state = initialAuthState, action): AuthState {
-    switch (action.type) {
-        case AuthActionTypes.LoginAction:
-            return {
-                loggedIn: true,
-                user: action.payload.user
-            }
-
-        default:
-            return state
-    }
-}
 
 export const reducers: ActionReducerMap<AppState> = {
-    auth: authReducer
+
 };
 
 

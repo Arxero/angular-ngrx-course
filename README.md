@@ -33,3 +33,7 @@ Generate action file with default actions
 
     ng g action auth/Auth
 
+Generate reducer without folder in auth module
+
+    ng g reducer Auth --flat=false --module auth/auth.module.ts
+
