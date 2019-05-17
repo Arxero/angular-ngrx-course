@@ -1,7 +1,7 @@
 
 ## Angular Ngrx Course
 
-This repository contains the code of the [Angular Ngrx Course](https://angular-university.io/course/angular-ngrx-course).
+This repository contains the step by step code of the [Angular Ngrx Course](https://angular-university.io/course/angular-ngrx-course).
 
 # To Run the Development Backend Server
 
@@ -21,6 +21,8 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
 
 
 # Commands Used in the Terminal (in order)
-ng config cli.defaultCollection @ngrx/schematics
-ng g store AppState --root --module app.module.ts
+
+    ng config cli.defaultCollection @ngrx/schematics
+    
+    ng g store AppState --root --module app.module.ts
 
