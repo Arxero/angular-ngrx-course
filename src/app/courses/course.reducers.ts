@@ -22,3 +22,10 @@ export function coursesReducer(state = initialCoursesState, action: CourseAction
             return state
     }
 }
+
+export const {
+    selectAll,
+    selectEntities,
+    selectIds,
+    selectTotal
+} = adapter.getSelectors();
