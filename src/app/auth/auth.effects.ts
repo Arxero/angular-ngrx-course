@@ -19,11 +19,24 @@ export class AuthEffects {
     @Effect({ dispatch: false })
     logout$ = this.actions$.pipe(
         ofType<Logout>(AuthActionTypes.LogoutAction),
-        tap((action) => {
+        tap(() => {
             localStorage.removeItem('user')
             this.router.navigateByUrl('/login')
         })
     );
+
+    @Effect()
+    init$ = defer((): Observable<Login | Logout> => {
+        const userData = localStorage.getItem('user')
+
+        if (userData) {
+            //dispatching action to the store
+            return of(new Login({user:JSON.parse(userData)}));
+        } else {
+            return of(new Logout());
+        }
+    });
+
 
 
 }
