@@ -6,7 +6,7 @@ import { CoursesService } from "../services/courses.service";
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../reducers';
 import { AllCoursesRequested } from '../course.actions';
-import { selectAllCourses } from '../course.selectors';
+import { selectAllCourses, selectBeginnerCourses, selectAdvancedCourses, selectPromoTotal } from '../course.selectors';
 
 @Component({
     selector: 'home',
@@ -19,26 +19,12 @@ export class HomeComponent implements OnInit {
     advancedCourses$: Observable<Course[]>;
 
     constructor(private store: Store<AppState>) {
-
     }
 
     ngOnInit() {
         this.store.dispatch(new AllCoursesRequested());
-
-        const courses$ = this.store.pipe(
-            select(selectAllCourses)
-        );
-
-        this.beginnerCourses$ = courses$.pipe(
-            map(courses => courses.filter(course => course.category === 'BEGINNER'))
-        );
-
-        this.advancedCourses$ = courses$.pipe(
-            map(courses => courses.filter(course => course.category === 'ADVANCED'))
-        );
-
-        this.promoTotal$ = courses$.pipe(
-            map(courses => courses.filter(course => course.promo).length)
-        );
+        this.beginnerCourses$ = this.store.pipe(select(selectBeginnerCourses));
+        this.advancedCourses$ = this.store.pipe(select(selectAdvancedCourses));
+        this.promoTotal$ = this.store.pipe(select(selectPromoTotal));
     }
 }

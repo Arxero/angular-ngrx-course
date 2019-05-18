@@ -17,7 +17,6 @@ export class CourseEffects {
         ofType<CourseRequested>(CourseActionTypes.CourseRequested),
         mergeMap(action => this.coursesService.findCourseById(action.payload.courseId)),
         map(course => new CourseLoaded({ course }))
-
     );
 
 
