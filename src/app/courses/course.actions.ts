@@ -22,11 +22,11 @@ export class CourseLoaded implements Action {
 
 //all courses actions
 export class AllCoursesRequested implements Action {
-    readonly type = CourseActionTypes.CourseRequested;
+    readonly type = CourseActionTypes.AllCoursesRequested;
 }
 
 export class AllCoursesLoaded implements Action {
-    readonly type = CourseActionTypes.CourseRequested;
+    readonly type = CourseActionTypes.AllCoursesLoaded;
     constructor(public payload: { courses: Course[] }) { }
 }
 
