@@ -21,6 +21,10 @@ export function authReducer(state = initialAuthState, action: AuthActions): Auth
                 user: action.payload.user
             }
         case AuthActionTypes.LogoutAction:
+            //the wrong way, we should never change the state directly
+            // state.loggedIn = false;
+            // state.user = undefined;
+            //return state
             return {
                 loggedIn: false,
                 user: undefined
