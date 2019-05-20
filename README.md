@@ -41,3 +41,7 @@ Generate ngrx effects file
 
     ng g effect auth/Auth --module auth/auth.module
 
+Generate entity
+
+    ng g entity --name Lesson --module courses/courses.module.ts
+
