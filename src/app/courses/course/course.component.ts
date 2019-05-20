@@ -4,7 +4,7 @@ import { MatPaginator, MatTableDataSource } from "@angular/material";
 import { Course } from "../model/course";
 import { CoursesService } from "../services/courses.service";
 import { debounceTime, distinctUntilChanged, startWith, tap, delay } from 'rxjs/operators';
-import { merge, fromEvent } from "rxjs";
+import { merge, fromEvent, Observable } from "rxjs";
 import { LessonsDataSource } from "../services/lessons.datasource";
 import { AppState } from '../../reducers';
 import { Store } from '@ngrx/store';
@@ -19,8 +19,9 @@ import { PageQuery } from '../course.actions';
 export class CourseComponent implements OnInit, AfterViewInit {
     course: Course;
     dataSource: LessonsDataSource;
-
     displayedColumns = ["seqNo", "description", "duration"];
+    loading$: Observable<boolean>;
+    
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
