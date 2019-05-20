@@ -5,7 +5,7 @@ import { CourseActions, CourseActionTypes } from "./course.actions";
 
 
 export interface CoursesState extends EntityState<Course> {
-    allCoursesLoaded:boolean;
+    allCoursesLoaded: boolean;
 }
 
 export const adapter: EntityAdapter<Course> = createEntityAdapter<Course>();
@@ -18,9 +18,12 @@ export function coursesReducer(state = initialCoursesState, action: CourseAction
     switch (action.type) {
         case CourseActionTypes.CourseLoaded:
             return adapter.addOne(action.payload.course, state);
-            
-            case CourseActionTypes.AllCoursesLoaded:
-            return adapter.addAll(action.payload.courses, {...state, allCoursesLoaded:true});
+
+        case CourseActionTypes.AllCoursesLoaded:
+            return adapter.addAll(action.payload.courses, { ...state, allCoursesLoaded: true });
+
+        case CourseActionTypes.CourseSaved:
+            return adapter.updateOne(action.payload.course, state);
 
         default:
             return state
