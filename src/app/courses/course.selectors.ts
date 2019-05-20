@@ -58,6 +58,5 @@ export const selectLessonsPage = (courseId: number, page: PageQuery) => createSe
             .filter(lesson => lesson.courseId == courseId)
             .slice(start, end);
     }
-
 );
 
