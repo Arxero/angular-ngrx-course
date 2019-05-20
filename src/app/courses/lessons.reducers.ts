@@ -33,10 +33,14 @@ export function lessonsReducer(state = initialLessonsState, action: CourseAction
                 ...state,
                 loading: true
             }
-
         case CourseActionTypes.LessonsPageLoaded:
             return adapter.addMany(action.payload.lessons, { ...state, loading: false });
 
+        case CourseActionTypes.LessonsPageCancelled:
+            return {
+                ...state,
+                loading: false
+            }
         default:
             return state
     }
