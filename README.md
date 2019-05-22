@@ -32,7 +32,7 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
     npm install --save-dev ngrx-store-freeze
 
 
-#Simple tutorial on how to implement ngrx
+# Simple tutorial on how to implement ngrx
 
 1. Setup schematics -  **ng config cli.defaultCollection @ngrx/schematics**
 2. Generate store **ng g store AppState --root --module app.module.ts**
