@@ -20,6 +20,18 @@ To run the frontend part of our code, we will use the Angular CLI:
 The application is visible at port 4200: [http://localhost:4200](http://localhost:4200)
 
 
+
+# To Add Ngrx packages to a new project
+
+    npm install @ngrx/store
+    npm install @ngrx/effects
+    npm install @ngrx/router-store
+    npm install @ngrx/store-devtools
+    npm install @ngrx/entity
+    npm install @ngrx/schematics
+    npm install --save-dev ngrx-store-freeze
+
+
 # Commands Used in the Terminal (in order)
 To set up schematics in the cli
 
