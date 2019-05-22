@@ -32,6 +32,32 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
     npm install --save-dev ngrx-store-freeze
 
 
+#Simple tutorial on how to implement ngrx
+1. Setup schematics -  ng config cli.defaultCollection @ngrx/schematics
+2. Generate store ng g store AppState --root --module app.module.ts
+3. Install [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) for chrome
+3. Setup store freeze in reducers/index.ts add storeFreeze like:
+```javascript
+import { storeFreeze } from 'ngrx-store-freeze';
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [storeFreeze] : [];
+```
+4. Add EffectsModule in imports of app.module.ts
+```javascript
+import { EffectsModule } from '@ngrx/effects';
+EffectsModule.forRoot([]),
+```
+5. Setup Time Travelling Debugger, in imports of app.module.ts add
+```javascript
+import {StoreRouterConnectingModule } from "@ngrx/router-store";
+StoreRouterConnectingModule.forRoot({ stateKey: 'router' })
+```
+6. [Create router CustomSerializer for the time traveling](https://github.com/Arxero/angular-ngrx-course/commit/0cfc65c97f57df82696cf0174e916bcd017b3caf)
+
+7. Generate the first action file ng g action auth(folder name)/Auth(action name) and write appropiate clases for every each of the actions then export them as union types bellow
+
+
+
+
 # Commands Used in the Terminal (in order)
 To set up schematics in the cli
 
